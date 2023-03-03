@@ -19,9 +19,11 @@ function init() {
 function render() {
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-	time += 1.0;
+	time += 2.0;
 
-	square.MV = rotateY(time);
+	//square.MV = rotateY(time) * rotateZ(time) * rotateX(time);
+	//square.MV = rotate(time, 45, 45);// * rotateY(45) * rotateX(45);
+	square.MV = mult(mult(rotateX(time),rotateY(time)),rotateZ(time));
 
 	square.render();
 

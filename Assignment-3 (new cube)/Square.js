@@ -2,6 +2,7 @@
 //
 //  Square.js
 //
+var result1;
 
 function Square(gl, vertexShader, fragmentShader) {
 
@@ -55,6 +56,8 @@ function Square(gl, vertexShader, fragmentShader) {
     let MV = new Uniform(gl, program, "MV");
     let P  = new Uniform(gl, program, "P");
 
+    //result1 = mult(mult(rotateX(time),rotateY(45)),rotateZ(45));
+
     this.render = () => {
         gl.useProgram(program);
 
@@ -63,6 +66,7 @@ function Square(gl, vertexShader, fragmentShader) {
 
         MV.update(this.MV);
         P.update(this.P);
+        square.MV = mult(mult(rotateX(time),rotateY(time)),rotateZ(time));
 
         gl.drawElements(gl.TRIANGLES, indices.count, indices.type, 0);
 
