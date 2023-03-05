@@ -31,18 +31,18 @@ function Square(gl, vertexShader, fragmentShader) {
     let indices = [
 
         
-         6,4,7, //face 
-         5,4,6, //
-         2,5,6, // right
-         1,5,2, // 
-         3,1,2, //
-         0,1,3, // back
-         7,0,3, //left
-         4,0,7,
-         2,7,3, //top
-         6,7,2,
-         5,0,4, //bottom
-         1,0,5
+         4,6,7, //face 
+         4,5,6, //
+         5,2,6, // right
+         5,1,2, // 
+         1,3,2, //
+         1,0,3, // back
+         0,7,3, //left
+         0,4,7,
+         7,2,3, //top
+         7,6,2,
+         0,5,4, //bottom
+         0,1,5
 
     ];
 
@@ -66,7 +66,6 @@ function Square(gl, vertexShader, fragmentShader) {
 
         MV.update(this.MV);
         P.update(this.P);
-        square.MV = mult(mult(rotateX(time),rotateY(time)),rotateZ(time));
 
         gl.drawElements(gl.TRIANGLES, indices.count, indices.type, 0);
 
